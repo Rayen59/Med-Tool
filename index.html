@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med-Forum | Creator</title>
+    <style>
+        body { background-color: #050505; color: #00ff00; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { border: 2px solid #00ff00; padding: 30px; box-shadow: 0 0 20px #00ff00; width: 90%; max-width: 400px; background: #000; border-radius: 10px; }
+        h1 { text-align: center; letter-spacing: 5px; text-shadow: 0 0 10px #00ff00; }
+        input { width: 100%; padding: 12px; margin: 10px 0; background: #111; border: 1px solid #00ff00; color: #00ff00; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #00ff00; color: black; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 10px; transition: 0.3s; }
+        button:hover { background: #fff; box-shadow: 0 0 20px #fff; }
+        #result { margin-top: 20px; padding: 10px; border: 1px dashed #fff; display: none; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MED-FORUM</h1>
+        <div id="form-area">
+            <input type="text" id="fname" placeholder="NOM DU FORUM" required>
+            <input type="text" id="fimg" placeholder="LIEN IMAGE (LOGO)">
+            <input type="password" id="fpass" placeholder="MOT DE PASSE (OPTIONNEL)">
+            <button onclick="generateLink()">Générer le lien International</button>
+        </div>
+        <div id="result">
+            <p style="color: white;">✅ FORUM CRÉÉ AVEC SUCCÈS !</p>
+            <p>Lien : <span id="link"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function generateLink() {
+            const name = document.getElementById('fname').value;
+            if(!name) return alert("Donne un nom au forum !");
+            document.getElementById('form-area').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            // Simulation de lien international
+            document.getElementById('link').innerText = "https://med-forum-" + Math.floor(Math.random() * 9999) + ".trycloudflare.com";
+        }
+    </script>
+</body>
+</html>
+
